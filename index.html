@@ -9,7 +9,6 @@
   </head>
   <body>
     <canvas></canvas>
-    <input id="line-width" type="range" min="1" max="10" value="5" step="0.5" />
     <div class="color-row">
       <input type="color" id="color" />
       <div
@@ -49,11 +48,6 @@
       ></div>
       <div
         class="color-option"
-        style="background-color: #95a5a6"
-        data-color="#95a5a6"
-      ></div>
-      <div
-        class="color-option"
         style="background-color: #d35400"
         data-color="#d35400"
       ></div>
@@ -73,14 +67,39 @@
         data-color="#e67e22"
       ></div>
     </div>
-    <div class="btn-row">
-      <button id="mode-btn">Fill</button>
-      <button id="destroy-btn">Destroy</button>
-      <button id="eraser-btn">Erase</button>
-      <input type="file" accept="image/*" id="file" />
-      <input type="text" placeholder="Write and then double click" id="text" />
-      <button id="save">Save image</button>
+    <div class="btns">
+      <div class="btns__drawing">
+        <label for="line-width">
+          Width :
+          <input
+            id="line-width"
+            type="range"
+            min="1"
+            max="10"
+            value="5"
+            step="0.5"
+          />
+        </label>
+        <button id="mode-btn">Fill</button>
+        <button id="destroy-btn">Clear</button>
+        <button id="eraser-btn">Erase</button>
+      </div>
+      <div class="etc-btn">
+        <label for="file">Add photo</label>
+        <input type="file" accept="image/*" id="file" />
+        <input
+          type="text"
+          placeholder="Write and then double click"
+          id="text"
+        />
+        <button id="save">Save image</button>
+      </div>
     </div>
     <script src="app.js"></script>
   </body>
+
+  <!--code challenge 
+  1. font fill-stroke mode change 
+  2. font size range 
+  3. draw (fill)shape-->
 </html>

@@ -58,7 +58,7 @@ function onColorClick(event) {
 }
 
 function onModeClick() {
-  if (isPainting) {
+  if (isFilling) {
     isFilling = false;
     modeBtn.innerText = "Fill";
   } else {
@@ -87,7 +87,6 @@ function onEraserClick() {
 function onFileChange(event) {
   const file = event.target.files[0];
   const url = URL.createObjectURL(file);
-  console.log(url);
   const image = new Image();
   image.src = url;
   image.onload = function () {
@@ -98,12 +97,14 @@ function onFileChange(event) {
 
 function onDoubleClick(event) {
   const text = textInput.value;
-  // save width,style, etc.
+  // save state of context
   ctx.save();
   if (text !== "") {
+    // modify context
     ctx.lineWidth = 1;
-    ctx.font = "48px serif";
+    ctx.font = "50px serif";
     ctx.fillText(text, event.offsetX, event.offsetY);
+    // restore context
     ctx.restore();
   }
 }
